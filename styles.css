@@ -1,0 +1,198 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.trust {
+    color: #000;
+}
+
+.chain {
+    color: #5D5FEF;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 1rem;
+}
+
+.nav-links a {
+    color: #5D5FEF;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Full-Height Header Section */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #5D5FEF;
+    color: #fff;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.header-content {
+    max-width: 800px;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+header button {
+    background-color: #fff;
+    color: #5D5FEF;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+header button:hover {
+    background-color: #e6e6ff;
+}
+.login-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: #5D5FEF;
+    background-color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Adds a subtle shadow */
+}
+
+.login-button:hover {
+    background-color: #e6e6ff; /* Off-white shade on hover */
+}
+
+
+/* Section Styling */
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    padding: 3rem 2rem;
+}
+
+/* Section Title Styling */
+section h2 {
+    font-size: 2.5rem;
+    color: #5D5FEF;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* How It Works Section Content */
+#how-it-works .section-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.process-images {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.process-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 318px;
+    text-align: center;
+}
+
+.step-image {
+    width: 318px;
+    height: 318px;
+    border-radius: 8px;
+}
+
+.process-step p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+.highlight {
+    color: #5D5FEF; /* Light purple keyword */
+    font-weight: bold;
+}
+
+/* General Styles for Other Sections */
+.text-content {
+    max-width: 600px;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+
+/* Specific Background Colors */
+#about-us {
+    background-color: #e6e6ff; /* Light purple for better contrast */
+}
+
+#about-us h2 {
+    color: #333;
+}
+
+#about-us p, #about-us ol {
+    color: #333; /* Dark text for readability */
+}
+
+#how-it-works {
+    background-color: white;
+}

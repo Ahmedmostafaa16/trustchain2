@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Score Calculator</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Style */
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 1rem 2rem;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+            text-align: left;
+        }
+
+        .trust {
+            color: #000;
+        }
+
+        .chain {
+            color: #5D5FEF;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-links a {
+            color: #5D5FEF;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Centered Container */
+        .container {
+            margin-top: 100px;
+            width: 90%;
+            max-width: 500px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Header Style */
+        h1 {
+            color: #5D5FEF;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        /* Form Labels and Inputs */
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+            font-size: 1rem;
+            color: #333;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="password"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        /* Button Styling */
+        .button-container {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #5D5FEF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #3333cc;
+        }
+
+        /* Result Display */
+        #result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <span class="trust">Trust</span><span class="chain">Chain</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#about-us">About Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Centered Credit Score Calculator Form -->
+    <div class="container">
+        <h1>Credit Score Calculator</h1>
+        <form id="creditScoreForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="18" required>
+
+            <label for="profession">Profession:</label>
+            <select id="profession" name="profession">
+                <option>Doctor</option>
+                <option>Engineer</option>
+                <option>Lawyer</option>
+                <option>Teacher</option>
+                <option>Other</option>
+            </select>
+
+            <label for="salary">Salary (in EGP):</label>
+            <input type="number" id="salary" name="salary" required>
+
+            <label for="residenceType">Residence Type:</label>
+            <select id="residenceType" name="residenceType">
+                <option value="Owned">Owned</option>
+                <option value="Rented">Rented</option>
+            </select>
+
+            <label for="carOwner">Do you own a car?</label>
+            <select id="carOwner" name="carOwner">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="educationLevel">Education Level:</label>
+            <select id="educationLevel" name="educationLevel">
+                <option value="High School">High School</option>
+                <option value="Bachelor's">Bachelor's</option>
+                <option value="Master's">Master's</option>
+                <option value="PhD">PhD</option>
+            </select>
+
+            <div class="button-container">
+                <button type="button" onclick="calculateCreditScore()">Calculate Score</button>
+            </div>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateCreditScore() {
+            const age = parseInt(document.getElementById("age").value);
+            const profession = document.getElementById("profession").value;
+            const salary = parseFloat(document.getElementById("salary").value);
+            const residenceType = document.getElementById("residenceType").value;
+            const carOwner = document.getElementById("carOwner").value === "yes";
+            const educationLevel = document.getElementById("educationLevel").value;
+
+            let score = 0;
+
+            if (age < 25) {
+                score += 10;
+            } else if (age >= 25 && age <= 35) {
+                score += 20;
+            } else if (age >= 36 && age <= 50) {
+                score += 30;
+            } else {
+                score += 25;
+            }
+
+            if (["Doctor", "Engineer", "Lawyer"].includes(profession)) {
+                score += 30;
+            } else {
+                score += 15;
+            }
+
+            score += Math.min(salary / 1000, 40);
+            score += residenceType === "Owned" ? 20 : 10;
+            score += carOwner ? 10 : 0;
+
+            const educationScores = { "High School": 10, "Bachelor's": 20, "Master's": 30, "PhD": 40 };
+            score += educationScores[educationLevel];
+            score = Math.min(score, 100);
+
+            document.getElementById("result").innerText = `Your Credit Score is: ${score}`;
+        }
+    </script>
+</body>
+</html>
